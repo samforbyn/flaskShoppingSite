@@ -27,7 +27,7 @@ def read_customers(filepath):
     Dict will be {email: Customer(...),
                     email: Customer(...)}
     """
-    customers_data = {}
+    customers = {}
 
     with open(filepath) as f:
         for line in f:
@@ -36,8 +36,14 @@ def read_customers(filepath):
             email,
             password) = line.strip().split("|")
 
-        customers_data[email] = Customer(first_name,
-                                         last_name,
-                                         email,
-                                         password
-                                        )
+            customers[email] = Customer(first_name,
+                                            last_name,
+                                            email,
+                                            password
+                                            )
+    return customers
+
+def get_by_email(email):
+    return customers[email]
+
+customers = read_customers("customers.txt")
