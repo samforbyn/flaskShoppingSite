@@ -192,7 +192,7 @@ def process_logout():
     flash("Logged out")
     return redirect('/melons')
 
-    
+
 @app.route("/checkout")
 def checkout():
     """Checkout customer, process payment, and ship melons."""
